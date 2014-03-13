@@ -5,7 +5,7 @@ from collective.transmogrifier.interfaces import ISectionBlueprint
 from collective.transmogrifier.interfaces import ISection
 
 class Limit(object):
-    """ """
+    """ limits the number of retrieved objects"""
 
     classProvides(ISectionBlueprint)
     implements(ISection)
@@ -26,7 +26,7 @@ class Limit(object):
             yield item
 
 class Replace(object):
-    """ """
+    """ replace text """
 
     classProvides(ISectionBlueprint)
     implements(ISection)
@@ -49,7 +49,7 @@ class Replace(object):
 
 
 class RemoveProperties(object):
-    """ """
+    """ remove Zope properties """
 
     classProvides(ISectionBlueprint)
     implements(ISection)
@@ -70,7 +70,7 @@ class RemoveProperties(object):
 
 
 class RenameUsers(object):
-    """ """
+    """ rename the user associated to an object """
 
     classProvides(ISectionBlueprint)
     implements(ISection)
@@ -94,7 +94,6 @@ class RenameUsers(object):
         return self.default or item
 
     def __iter__(self):
-#        import pdb;pdb.set_trace()
         for item in self.previous:
             for field in ['creators', 'contributors']:
                 if field in item:
@@ -105,7 +104,7 @@ class RenameUsers(object):
 
 
 class IgnoreFields(object):
-    """ """
+    """ remove fields from the chain """
 
     classProvides(ISectionBlueprint)
     implements(ISection)
