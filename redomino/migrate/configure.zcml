@@ -1,0 +1,37 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    i18n_domain="redomino.migrate">
+
+    <include package="collective.transmogrifier" file="meta.zcml" />
+    <include package="collective.transmogrifier" />
+    <include package="plone.app.transmogrifier" />
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <utility
+        component=".blueprints.Limit"
+        name="redomino.migrate.limit"
+        />
+
+    <utility
+        component=".blueprints.RemoveProperties"
+        name="redomino.migrate.remove_properties"
+        />
+
+    <utility
+        component=".blueprints.Replace"
+        name="redomino.migrate.replace"
+        />
+
+    <utility
+        component=".blueprints.RenameUsers"
+        name="redomino.migrate.renameusers"
+        />
+    <utility
+        component=".blueprints.IgnoreFields"
+        name="redomino.migrate.ignore_fields"
+        />
+
+</configure>
