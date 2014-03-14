@@ -84,7 +84,7 @@ class RenameUsers(object):
         l1 = [ p.strip() for p in self.options['from'].split(',') ]
         l2 = [ p.strip() for p in self.options['to'].split(',') ]
         self.fromto = zip(l1, l2)
-        self.default = self.options['default']
+        self.default = self.options.get('default')
 
     def translate(self, item):
         for f, t in self.fromto:
